@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
 //        customer.setEmail(customerRequestDTO.getEmail());
 
         Customer customer=customerMapper.customerRequestDTOToCustomer(customerRequestDTO);
-//        // customer.setId(UUID.randomUUID().toString());
+        // customer.setId(UUID.randomUUID().toString());
         Customer savedC = customerRepository.save(customer);
 //
 //        /*Mapping Objet objet
@@ -45,7 +46,7 @@ public class CustomerServiceImpl implements CustomerService {
 //        customerResponseDTO.setName(savedC.getName());
 //        customerResponseDTO.setEmail(savedC.getEmail());
 
-        CustomerResponseDTO customerResponseDTO=customerMapper.customerToCustomerResponseDTO(savedC);
+        CustomerResponseDTO customerResponseDTO=customerMapper.customerToCustomerDTO(savedC);
 
 
         return customerResponseDTO;
@@ -55,14 +56,14 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerResponseDTO getCustomer(String id) {
         Customer customer=customerRepository.findById(id).get();
 
-        return customerMapper.customerToCustomerResponseDTO(customer);
+        return customerMapper.customerToCustomerDTO(customer);
     }
 
     @Override
     public CustomerResponseDTO update(CustomerRequestDTO customerRequestDTO) {
         Customer customer= customerMapper.customerRequestDTOToCustomer(customerRequestDTO);
         Customer customer_updated = customerRepository.save(customer);
-        return customerMapper.customerToCustomerResponseDTO(customer_updated);
+        return customerMapper.customerToCustomerDTO(customer_updated);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class CustomerServiceImpl implements CustomerService {
     public List<CustomerResponseDTO> listCustomers() {
         List<Customer> customers = customerRepository.findAll();
         List<CustomerResponseDTO> customerResponseDTOS=
-                customers.stream().map(cust -> customerMapper.customerToCustomerResponseDTO(cust)).collect(Collectors.toList());
+                customers.stream().map(cust -> customerMapper.customerToCustomerDTO(cust)).collect(Collectors.toList());
         return customerResponseDTOS;
     }
 }
