@@ -12,16 +12,16 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.2.Final/mapstruct-1.4.2.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar" />
         </processorPath>
-        <module name="openlab-customer-service" />
+        <module name="Customer-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="openlab-customer-service" target="17" />
+      <module name="Customer-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="openlab-customer-service" options="-parameters" />
+      <module name="Customer-service" options="-parameters" />
     </option>
   </component>
 </project>

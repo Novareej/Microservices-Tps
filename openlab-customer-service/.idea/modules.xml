@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/openlab-customer-service.iml" filepath="$PROJECT_DIR$/openlab-customer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Customer-service.iml" filepath="$PROJECT_DIR$/Customer-service.iml" />
     </modules>
   </component>
 </project>
